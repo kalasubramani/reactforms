@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './authenticate.css'
 
 function Authenticate({authToken}){
@@ -8,14 +8,23 @@ function Authenticate({authToken}){
   const [uname,setUname]=useState(null);
   const[iat,setIat]=useState("");
 
+  useEffect(()=>{
+      if(authToken){
+        setErrorMessage("");
+      }
+
+  }, [authToken])
+
 //handles authentication for the form
  async function handleAuthentication(){
     
     try{
       if(!authToken){
-          window.alert("You must complete signup form to generate event token.")
+          //window.alert("You must complete signup form to generate event token.")
+          setErrorMessage("You must complete signup form to generate event token.")
           return;
       }
+     
       //make api call with auth token
       const response = await fetch(
         "https://fsa-jwt-practice.herokuapp.com/authenticate",
@@ -41,7 +50,7 @@ function Authenticate({authToken}){
     <h3>Authenticate form</h3>
     {/* if there is an errormessage, display it */}
     {errorMessage && 
-    <p className="error"> An error occured. Here is the error detail: {errorMessage}</p>
+    <p className="error"> An error occured.{errorMessage}</p>
     }
     {/* display success message */}
     {successMessage&&<p className="success">{successMessage} {uname} your event token is {iat}</p>}

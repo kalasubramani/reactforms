@@ -29,4 +29,6 @@
 }
 .error{
   color:orangered;
+  font-weight: bold;
+  background-color: blanchedalmond;
 }
