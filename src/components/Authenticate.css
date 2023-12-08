@@ -1,0 +1,22 @@
+.authenticate{
+  background-color: rgba(185, 10, 68,0.3);
+  margin-top:15px;
+  border-radius: 20px;
+  padding-bottom:25px;
+  width:100%;
+  color:blanchedalmond;
+  border: 5px solid  rgba(238, 228, 231, 0.3) ; 
+}
+.success{
+  font-weight: bold;
+  color:greenyellow;
+}
+.error{
+  color:orangered;
+}
+
+.button{
+  color: blanchedalmond;
+  background-color: rgba(112, 10, 44, 0.3);
+  border: 5px solid  rgba(238, 228, 231, 0.3) ;
+}
